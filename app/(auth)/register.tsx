@@ -5,8 +5,8 @@ import CustomInput from "../../components/CustomInput";
 import { RegisterSchema } from "../../lib/schemas";
 import { AuthTexts } from "../../constants/auth";
 
-// Tipo para forzar la ruta si es necesario
-type RoutePath = "/(success)/registerSuccess";
+// Tipo para rutas (si persiste el error de tipado)
+type CustomRoute = "/(success)/registerSuccess";
 
 export default function RegisterScreen() {
   const [form, setForm] = useState({
@@ -28,18 +28,21 @@ export default function RegisterScreen() {
       );
       setErrors(newErrors);
     } else {
-      // Forzar el tipo de la ruta
-      const path: RoutePath = "/(success)/registerSuccess";
+      const path: CustomRoute = "/(success)/registerSuccess";
       router.push(path);
     }
   };
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === "ios" ? "padding" : "padding"} // Cambiado a "padding" para Android
+      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20} // Offset adicional para Android
       className="flex-1"
     >
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled" // Permite toques en botones con teclado abierto
+      >
         <View className="flex-1 justify-center px-6 py-8 bg-white">
           <View className="max-w-md mx-auto">
             <Text className="text-3xl font-bold text-center mb-6">{AuthTexts.REGISTER}</Text>
