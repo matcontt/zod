@@ -1,53 +1,36 @@
-> Edited for use in IDX on 07/09/12
+# Zod Gemini Expo App 👋
 
-# Welcome to your Expo app 👋
+Este es un proyecto de [Expo](https://expo.dev) creado con [`create-expo-app`](https://www.npmjs.com/package/create-expo-app) para el módulo de **Programación Móvil** (Bachillerato, Área Informática, Curso Tercero, Año Lectivo 2025-2026). Este proyecto implementa un módulo de autenticación completo (Registro e Inicio de Sesión) utilizando React Native, Tailwind CSS (vía NativeWind), y validación de esquemas con Zod, siguiendo los criterios de evaluación establecidos para el primer trimestre.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> Editado para uso en IDX el 05/11/2025
 
-## Get started
+## Descripción del Proyecto
 
-#### Android
+La **Zod Gemini Expo App** es una aplicación móvil que ofrece una experiencia de usuario fluida para el registro e inicio de sesión. Incluye:
+- **Registro (Sign Up)**: Permite ingresar Nombre, Correo Electrónico, Contraseña y Confirmación de Contraseña, con validación estricta usando Zod.
+- **Inicio de Sesión (Log In)**: Permite ingresar Correo Electrónico y Contraseña, también validado con Zod.
+- **Navegación**: Utiliza Expo Router para transiciones entre pantallas, simulando éxito con pantallas de confirmación.
+- **UX Mejorada**: Implementa `KeyboardAvoidingView` y `ScrollView` para asegurar que el teclado no oculte campos o botones en Android y iOS.
 
-Android previews are defined as a `workspace.onStart` hook and started as a vscode task when the workspace is opened/started.
+El diseño es moderno, con estilos gestionados exclusivamente mediante Tailwind CSS, y cuenta con un componente reutilizable (`CustomInput`) para los formularios.
 
-Note, if you can't find the task, either:
-- Rebuild the environment (using command palette: `IDX: Rebuild Environment`), or
-- Run `npm run android -- --tunnel` command manually run android and see the output in your terminal. The device should pick up this new command and switch to start displaying the output from it.
+## Requisitos Previos
 
-In the output of this command/task, you'll find options to open the app in a
+- **Node.js**: Versión 14.x o superior.
+- **Expo CLI**: Instala globalmente con `npm install -g expo-cli`.
+- **Emulador o Dispositivo**: Android Emulator (via Android Studio) o Expo Go en un dispositivo físico.
+- **Git**: Para clonar y gestionar el repositorio.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Instalación
 
-You'll also find options to open the app's developer menu, reload the app, and more.
+Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno:
 
-#### Web
 
-Web previews will be started and managred automatically. Use the toolbar to manually refresh.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+https://github.com/user-attachments/assets/51e45903-a795-4845-957c-52f4851729ff
 
-## Get a fresh project
 
-When you're ready, run:
-
+### 1. Clona el Repositorio
 ```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+git clone https://github.com/matcontt/zod.git
+cd zod
