@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Pressable, KeyboardAvoidingView, Platform } from "react-native";
+import { View, Text, Pressable, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { Link } from "expo-router";
 import CustomInput from "../../components/CustomInput";
 import { RegisterSchema } from "../../lib/schemas";
@@ -33,46 +33,48 @@ export default function RegisterScreen() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       className="flex-1"
     >
-      <View className="flex-1 justify-center px-6 py-8 bg-white">
-        <View className="max-w-md mx-auto">
-          <Text className="text-3xl font-bold text-center mb-6">{AuthTexts.REGISTER}</Text>
-          <CustomInput
-            placeholder={AuthTexts.NAME}
-            value={form.name}
-            onChangeText={(text) => setForm({ ...form, name: text })}
-            error={errors.name}
-          />
-          <CustomInput
-            placeholder={AuthTexts.EMAIL}
-            value={form.email}
-            onChangeText={(text) => setForm({ ...form, email: text })}
-            error={errors.email}
-          />
-          <CustomInput
-            placeholder={AuthTexts.PASSWORD}
-            value={form.password}
-            onChangeText={(text) => setForm({ ...form, password: text })}
-            secureTextEntry
-            error={errors.password}
-          />
-          <CustomInput
-            placeholder="Confirmar Contraseña"
-            value={form.confirmPassword}
-            onChangeText={(text) => setForm({ ...form, confirmPassword: text })}
-            secureTextEntry
-            error={errors.confirmPassword}
-          />
-          <Pressable className="bg-blue-600 py-3 rounded-lg mt-4" onPress={handleSubmit}>
-            <Text className="text-white text-center text-lg">{AuthTexts.REGISTER}</Text>
-          </Pressable>
-          <Text className="text-center mt-4 text-gray-600">
-            {AuthTexts.NO_ACCOUNT}
-            <Link href="/(auth)/login" className="text-blue-600">
-              {AuthTexts.LOGIN}
-            </Link>
-          </Text>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View className="flex-1 justify-center px-6 py-8 bg-white">
+          <View className="max-w-md mx-auto">
+            <Text className="text-3xl font-bold text-center mb-6">{AuthTexts.REGISTER}</Text>
+            <CustomInput
+              placeholder={AuthTexts.NAME}
+              value={form.name}
+              onChangeText={(text) => setForm({ ...form, name: text })}
+              error={errors.name}
+            />
+            <CustomInput
+              placeholder={AuthTexts.EMAIL}
+              value={form.email}
+              onChangeText={(text) => setForm({ ...form, email: text })}
+              error={errors.email}
+            />
+            <CustomInput
+              placeholder={AuthTexts.PASSWORD}
+              value={form.password}
+              onChangeText={(text) => setForm({ ...form, password: text })}
+              secureTextEntry
+              error={errors.password}
+            />
+            <CustomInput
+              placeholder="Confirmar Contraseña"
+              value={form.confirmPassword}
+              onChangeText={(text) => setForm({ ...form, confirmPassword: text })}
+              secureTextEntry
+              error={errors.confirmPassword}
+            />
+            <Pressable className="bg-blue-600 py-3 rounded-lg mt-4" onPress={handleSubmit}>
+              <Text className="text-white text-center text-lg">{AuthTexts.REGISTER}</Text>
+            </Pressable>
+            <Text className="text-center mt-4 text-gray-600">
+              {AuthTexts.NO_ACCOUNT}
+              <Link href="/(auth)/login" className="text-blue-600">
+                {AuthTexts.LOGIN}
+              </Link>
+            </Text>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }
