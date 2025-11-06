@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, Pressable, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import CustomInput from "../../components/CustomInput";
 import { RegisterSchema } from "../../lib/schemas";
 import { AuthTexts } from "../../constants/auth";
+
+// Tipo para forzar la ruta si es necesario
+type RoutePath = "/(success)/registerSuccess";
 
 export default function RegisterScreen() {
   const [form, setForm] = useState({
@@ -13,6 +16,7 @@ export default function RegisterScreen() {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof typeof form, string>>>({});
+  const router = useRouter();
 
   const handleSubmit = () => {
     setErrors({});
@@ -24,7 +28,9 @@ export default function RegisterScreen() {
       );
       setErrors(newErrors);
     } else {
-      console.log("Register Success:", result.data);
+      // Forzar el tipo de la ruta
+      const path: RoutePath = "/(success)/registerSuccess";
+      router.push(path);
     }
   };
 

@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { View, Text, Pressable, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import CustomInput from "../../components/CustomInput";
 import { LoginSchema } from "../../lib/schemas";
 import { AuthTexts } from "../../constants/auth";
 
+// Tipo para forzar la ruta si es necesario
+type RoutePath = "/(success)/loginSuccess";
+
 export default function LoginScreen() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof typeof form, string>>>({});
+  const router = useRouter();
 
   const handleSubmit = () => {
     setErrors({});
@@ -19,7 +23,9 @@ export default function LoginScreen() {
       );
       setErrors(newErrors);
     } else {
-      console.log("Login Success:", result.data);
+      // Forzar el tipo de la ruta
+      const path: RoutePath = "/(success)/loginSuccess";
+      router.push(path);
     }
   };
 
