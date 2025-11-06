@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import "./global.css"; // Tu archivo CSS global
+import "@/global.css"; // Tu archivo CSS global
 
 export default function Layout() {
   return (
